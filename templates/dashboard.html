@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Bienvenido</h2>
+            <div class="user-info">
+                <h4>Datos del Usuario</h4>
+                <p><strong>Nombre:</strong> {{ user_data['name'] }}</p>
+                <p><strong>Último Ingreso:</strong> {{ user_data['last_login'] }}</p>
+                <img src="{{ url_for('static', filename='faces/' + user_data['name'] + '.jpg') }}" alt="Imagen del Usuario" class="user-img">
+            </div>
+            <a href="{{ url_for('logout') }}" class="btn-logout">Cerrar Sesión</a>
+        </div>
+    </div>
+</body>
+</html>

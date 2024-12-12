@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Facial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2 style="font-family: Arial, sans-serif; color: red;">Registro Fablab - UFPS</h2>
+
+
+            <!-- Mensaje de alerta -->
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="alert">
+                  {{ messages[0] }}
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="/login_face">
+                <div class="form-group">
+                    <label for="user_id">Usuario</label>
+                    <input type="text" id="user_id" name="user_id" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="camera">Capturar imagen</label>
+                    <video id="camera" width="320" height="240" autoplay></video>
+                    <input type="hidden" id="image" name="image">
+                </div>
+
+                <button type="submit" id="capture">Iniciar sesión</button>
+            </form>
+
+            <p>¿No tienes una cuenta? <a href="/register">Regístrate aquí</a></p>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('camera');
+
+        navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
+            video.srcObject = stream;
+        });
+
+        document.getElementById('capture').addEventListener('click', function () {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            const dataUrl = canvas.toDataURL('image/png');
+            document.getElementById('image').value = dataUrl;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: linear-gradient(to bottom, #c4c4c4, hsl(0, 97%, 53%));
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Estilos para formularios */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Estilos para botones */
+button#capture,
+.btn-logout {
+    background-color: #28a745;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+button#capture:hover,
+.btn-logout:hover {
+    background-color: #218838;
+}
+
+/* Estilos para alertas */
+.alert {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para imágenes */
+.user-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin-top: 10px;
+}
